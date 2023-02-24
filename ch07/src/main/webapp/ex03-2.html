@@ -5,7 +5,11 @@
 <script type="text/javascript" src="jquery/jquery-simple.js"></script>
 <script>
 $(function(){
-	var $obj = $(".par");
+ 	var $obj = $(".par");
+	console.log("load!!!");
+	
+	console.log(typeof(jQuery), typeof($obj), "length:" + $obj.length, $obj instanceof Array, $obj instanceof Object);
+
 	$obj.click(function(){
 		console.log("clicked:" + this);
 	});
@@ -13,11 +17,6 @@ $(function(){
 	setTimeout(function(){
 		$obj.css('color', 'red');
 	}, 2000);
-
-	setTimeout(function(){
-		$("p").css('font-weight', 'bold');
-	}, 4000);
-
 });
 </script>
 </head>
