@@ -1,13 +1,34 @@
 imageViewer = {
 	init: function() {
-		for(var i = 0; i< 100; i++) {
-			this._changeImage();
+		$(imageViewer._init);
+	},
+	_init: function() {
+		$('.buttons #btn-change').click(imageViewer._changeImage);
+		$('.buttons #btn-slideshow').click(imageViewer._slideImage);
+	},
+	_slideImage: function(){
+		if(!imageViewer._intervalId) {
+			imageViewer._intervalId = setInterval(imageViewer._changeImage, 1000);
+			$('.buttons #btn-slideshow').text("슬라이드쇼 끝");
+		} else {
+			clearInterval(imageViewer._intervalId);
+			imageViewer._intervalId=null;
+			$('.buttons #btn-slideshow').text("슬라이드쇼 시작");
 		}
 	},
 	_changeImage: function() {
-		var index = Math.floor(Math.random()*this._images.length);
+		var index = Math.floor(Math.random()*imageViewer._images.length);
 		
-		console.log(index);
+		while($(".image-viewer img").attr("title")===imageViewer._images[index].name) {
+			index = Math.floor(Math.random()*imageViewer._images.length);
+		}
+		
+		// console.log(index);
+		
+		$(".image-viewer img").attr({
+			src:"images/"+imageViewer._images[index].file,
+			title:imageViewer._images[index].name
+		});
 	},
 	_intervalId : null,
 	_images: [{
