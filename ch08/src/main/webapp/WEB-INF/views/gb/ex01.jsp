@@ -9,16 +9,16 @@
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
 <script>
-var render = function(vo) {
+var render = function(vo, mode) {
 	var htmls = 
-		"<li data-no=''>" +
+		"<li data-no='" + vo.no + "'>" +
 		"	<strong>" + vo.name + "</strong>" +
 		"	<p>" + vo.message + "</p>" +
 		"	<strong></strong>" +
-		"	<a href='' data-no=''>삭제</a>" + 
+		"	<a href='' data-no='" + vo.no + "'>삭제</a>" + 
 		"</li>";
 	
-	$("#list-guestbook").prepend(htmls);
+	$("#list-guestbook")[mode? "prepend" : "append"](htmls);
 }
 
 $(function() {
@@ -46,7 +46,7 @@ $(function() {
 					return;
 				}
 				
-				render(response.data);
+				render(response.data, true);
 			}
 		});
 	});
