@@ -10,6 +10,4 @@ public class RestApiTestController {
 	public String test( ) {
 		return "rest-test";
 	}
-	
-	
 }
