@@ -13,7 +13,7 @@ import ch08.vo.GuestbookVo;
 @Controller
 @RequestMapping("/api")
 public class ApiController {
-	
+
 	@ResponseBody
 	@RequestMapping(value="/text", method=RequestMethod.GET)
 	public String text() {
@@ -33,7 +33,7 @@ public class ApiController {
 		vo.setNo(1L);
 		vo.setName("둘리");
 		vo.setMessage("호이~");
-		
+
 		return XmlResult.success(vo);
 	}
 	
@@ -47,10 +47,11 @@ public class ApiController {
 		
 		return JsonResult.success(vo);
 	}
-
+	
 	@ResponseBody
 	@RequestMapping(value="/post01", method=RequestMethod.POST)
 	public JsonResult post01(GuestbookVo vo) {
+		
 		// service -> repository : db insert 성공한 후,
 		
 		vo.setNo(1L);
@@ -62,6 +63,7 @@ public class ApiController {
 	@ResponseBody
 	@RequestMapping(value="/post02", method=RequestMethod.POST)
 	public JsonResult post02(@RequestBody GuestbookVo vo) {
+		
 		// service -> repository : db insert 성공한 후,
 		
 		vo.setNo(1L);
@@ -69,4 +71,5 @@ public class ApiController {
 		
 		return JsonResult.success(vo);
 	}
+	
 }

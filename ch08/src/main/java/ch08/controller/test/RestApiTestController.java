@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RestApiTestController {
 	
 	@RequestMapping("/test/rest")
-	public String test( ) {
+	public String test() {
 		return "rest-test";
 	}
 }

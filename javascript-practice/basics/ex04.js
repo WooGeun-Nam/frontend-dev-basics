@@ -1,5 +1,5 @@
 /*
-변수의 스코프(scope)
+변수의 스코프(Scope)
 
 1. 자바스크립트는 코드에서 변수의 범위를 알 수 있다.(정적 스코프)
 2. 자바스크립트 전역 범위
@@ -10,12 +10,12 @@
 4. ES6 이후(ES6 ~ ES2023)
     - 자바와 같은 블록 스코프를 지원한다.
     - let 키워드를 사용해서 블록 범위를 가지게 한다.
-    - const 키워드는 블록 범위에 있는 상수를 정의할 때 사용한다.
-5. 결론
-    const/let만 사용하고 둘 중에 하나를 반드시 붙히자!!!! (안 붙히면 전역범위가 된다. hoisting)
+    - const 키워드는 블록 범위에 있는 상수응 정의할 때 사용한다.
+    
+5.  결론
+    const/let만 사용하고 둘 중에 하나를 반드시 붙히자!!!!!(안 붙히면 전역범위가 된다. hoisting)
 */
 var i = 20;
-
 var f = function() {
     var i = 20;
     j = 100;
@@ -25,12 +25,11 @@ var f = function() {
 }
 
 f();
-
 console.log(i);
 console.log(j);
 
 console.log("=== var 키워드는 함수 블록에서만 함수 범위를 만든다");
-if(90 + 10 === 100) {
+if(90 + 10 == 100) {
     var k = 10;
 }
 
@@ -41,7 +40,7 @@ console.log(k);
     const PI = 3.14;
 
     x = 100;
-    PI = 0; // assign error
+    // PI = 0;  //assign error
 }
 
 // console.log(x);  // not defined error

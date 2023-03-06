@@ -39,3 +39,5 @@ console.log(a);
 
 var a = str7.split(":");
 console.log(a);
+
+

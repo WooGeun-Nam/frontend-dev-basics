@@ -10,9 +10,10 @@
 <script src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
 <script>
 //
-// scroll event는 초07/ex37 참고
+// scroll event는 /ch07/ex37.html 참고
 // api url /guestbook/api?sno=10: sno보다 작은 no의 row를 top-k(limit 0, k) 구현 할 것
 //
+
 var render = function(vo, mode) {
 	var htmls = 
 		"<li data-no='" + vo.no + "'>" +
@@ -23,8 +24,6 @@ var render = function(vo, mode) {
 		"</li>";
 	
 	$("#list-guestbook")[mode? "prepend" : "append"](htmls);
-	
-	// $lastLi.data("no");
 }
 
 var fetch = function() {
@@ -38,12 +37,9 @@ var fetch = function() {
 				return;
 			}
 			
-			console.log(response.data);
-			
 			response.data.forEach(function(vo){
 				render(vo);
 			});
-			// render(response.data);
 		}
 	});	
 }

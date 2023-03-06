@@ -1,7 +1,7 @@
-/* 
- * Date 객체 함수(Date.prototype.*) 
+/**
+ * Data 객체 함수(Data.prototype.*)
  * 
-*/
+ */
 
 // 현재 시간
 var now = new Date();
@@ -24,10 +24,10 @@ console.log(
     "분:" + now.getMinutes() + "\n" +
     "초:" + now.getSeconds() + "\n" +
     "밀리초:" + now.getMilliseconds()
-)
+);
 
 d2.setFullYear(2024);
 console.log(d2);
 
-d2.setMonth(7); // 8월 - 1
+d2.setMonth(7); // 8월 - 1 
 console.log(d2);

@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +15,13 @@ $(function() {
 		password: "1234",
 		message: "호이~"
 	};
-	$("button").click(function() {
+	
+	$("button").click(function(){
 		$.ajax({
-			url: "${pageContext.request.contextPath }/api/post02",
+			url: "${pageContext.request.contextPath}/api/post02",
 			async: true,
 			type: "post",
-			dataType: "json",
+			dataType: "json",	
 			contentType: "application/json",
 			data: JSON.stringify(vo),
 			success: function(response) {
@@ -33,9 +33,9 @@ $(function() {
 				var vo = response.data;
 				
 				var htmls = "";
-				htmls += ("<h3>" + vo.no + "</h3>")
-				htmls += ("<h4>" + vo.name + "</h4>")
-				htmls += ("<h5>" + vo.message + "</h5>")
+				htmls += ("<h3>" + vo.no + "</h3>");
+				htmls += ("<h4>" + vo.name + "</h4>");
+				htmls += ("<h5>" + vo.message + "</h5>");
 				
 				$("#data").html(htmls);
 			},

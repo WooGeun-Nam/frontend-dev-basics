@@ -2,6 +2,7 @@
  * Function.prototype.call
  * Function.prototype.apply
  * Function.prototype.bind
+ * 
  */
 
 var myObject = {
@@ -21,16 +22,17 @@ var yourObject = {
 // 일반적인 객체의 함수 호출
 myObject.f1();
 
-// apply: 호출되는 함수의 this를 파라미터로 전달된 객체로 바꾼다.
-myObject.f2.apply(yourObject);
+// apply: 호출되는 함수의 this 파라미터로 전달된 객체로 바꾼다.
+myObject.f1.apply(yourObject);
 
 // call: 호출되는 함수의 this 파라미터로 전달된 객체로 바꾼다. + 다른 파라미터도 전달할 수 있다.
 myObject.f2.call(yourObject, "hello");
 myObject.f2.call(yourObject, "hello", "again");
 
 // bind: 호출되기 전에 함수의 this를 파라미터로 전달된 객체로 세팅한다.
+
 var f3 = function() {
-    console.log(this.v);
+    console.log(this.v)
 }.bind(myObject);
 
 f3();

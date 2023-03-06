@@ -3,8 +3,8 @@ package ch08.vo;
 public class GuestbookVo {
 	private Long no;
 	private String name;
-	private String password;
 	private String message;
+	private String password;
 	private String regDate;
 	public Long getNo() {
 		return no;
@@ -18,17 +18,17 @@ public class GuestbookVo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	public String getMessage() {
 		return message;
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -38,7 +38,7 @@ public class GuestbookVo {
 	}
 	@Override
 	public String toString() {
-		return "GuestBookVo [no=" + no + ", name=" + name + ", password=" + password + ", message=" + message
+		return "GuestbookVo [no=" + no + ", name=" + name + ", message=" + message + ", password=" + password
 				+ ", regDate=" + regDate + "]";
-	}
+	}	
 }

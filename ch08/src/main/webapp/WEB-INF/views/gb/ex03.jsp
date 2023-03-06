@@ -7,14 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-//
-// scroll event는 초07/ex37 참고
-// api url /guestbook/api?sno=10: sno보다 작은 no의 row를 top-k(limit 0, k) 구현 할 것
-//
 var render = function(vo, mode) {
 	var htmls = 
 		"<li data-no='" + vo.no + "'>" +
@@ -38,12 +34,9 @@ var fetch = function() {
 				return;
 			}
 			
-			console.log(response.data);
-			
 			response.data.forEach(function(vo){
 				render(vo);
 			});
-			// render(response.data);
 		}
 	});	
 }
@@ -54,8 +47,8 @@ $(function(){
 		autoOpen: false,
 		modal: true,
 		buttons: {
-			"삭제": function(){
-				console.log("ajax 삭제하기")
+			"삭제": function() {
+				console.log("ajax 삭제하기");
 				
 				/*
 				$.ajax({
@@ -68,29 +61,28 @@ $(function(){
 							return;
 						}
 						
-						console.log(response.data);
-						
 						response.data.forEach(function(vo){
 							render(vo);
 						});
-						// render(response.data);
 					}
-				});	
+				});
 				*/
-				// $("li[data-no='10']").remove();
 			},
-			"취소": function(){
-				console.log("삭제 다이알로그의 폼 리셋");
+			"취소": function() {
+				console.log("삭제 다이알로그의 폼 데이터 리셋하기");
 				$(this).dialog('close');
 			}
 		}
 	});
+	
 	// 메세지 삭제 버튼 click 이벤트 처리(Live Event)
 	$(document).on('click', "#list-guestbook li", function(event){
 		event.preventDefault();
+		
 		$("#hidden-no").val($(this).data("no"));
 		$dialogDelete.dialog('open');
 	});
+	
 	
 // 최초 리스트 가져오기
 fetch();
@@ -111,7 +103,7 @@ fetch();
 			
 			<div id="dialog-delete-form" title="메세지 삭제" style="display:none">
   				<p class="validateTips normal">작성시 입력했던 비밀번호를 입력하세요.</p>
-  				<p class="validateTips error" style="display:none">비밀번호가 틀립니다.</p>
+  				<p class="validateTips error" style="display:none;">비밀번호가 틀립니다.</p>
   				<form>
  					<input type="password" id="password-delete" value="" class="text ui-widget-content ui-corner-all">
 					<input type="hidden" id="hidden-no" value="">

@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +10,9 @@
 <script src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js"></script>
 <script>
 $(function(){
-	$('button').click(function(){
+	$("button").click(function(){
 		$.ajax({
-			url: "${pageContext.request.contextPath }/api/xml",
+			url: "${pageContext.request.contextPath}/api/xml",
 			async: true,
 			type: "get",
 			dataType: "xml",
@@ -21,27 +20,27 @@ $(function(){
 				// console.log(response);
 				var $data = $("data", response);
 				
+				var $no = $("no", $data);
 				var $name = $("name", $data);
 				var $message = $("message", $data);
-				var $no = $("no", $data);
 				
 				var htmls = "";
-				htmls += ("<h3>" + $no.text() + "</h3>")
-				htmls += ("<h4>" + $name.text() + "</h4>")
-				htmls += ("<h5>" + $message.text() + "</h5>")
+				htmls += ("<h3>" + $no.text() + "</h3>");
+				htmls += ("<h4>" + $name.text() + "</h4>");
+				htmls += ("<h5>" + $message.text() + "</h5>");
 				
-				$("#data").html(htmls);
+				$("#data").html(htmls);				
 			},
 			error: function(xhr, status, error) {
 				console.error(status, error);
 			}
 		});
 	});
-});
+})
 </script>
 </head>
 <body>
-	<h1>AJAX Test: XML Format Data: $.ajax() 함수 사용하기</h1>
+	<h1>AJAX Test: XML Format Data</h1>
 	
 	<button>데이터 가져오기</button>
 	<div id="data"></div>

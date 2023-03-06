@@ -1,17 +1,14 @@
-/**
- * prototype
- * 자바스크립트 객체 4 - prototype 기반의 상속과 오버라이딩: 자바스크립트 객체 지향 프로그래밍
- */
-
+/*
+자바스크립트 객체 4 - prototype 기반의 상속과 오버라이딩: 자바스크립트 객체 지향 프로그래밍
+*/
 var MyObject = function(name, age) {
     this.name = name;
     this.age = age;
 }
-
 MyObject.prototype.school = 'bitacademy';
 MyObject.prototype.course = 'Spring & React';
 MyObject.prototype.info = function() {
-    console.log(this.name + ":" + this.age + this.school + ":" + this.course);
+    console.log(this.name + ":" + this.age + ":" + this.school + ":" + this.course);
 }
 
 // MyObject 인스탄스 생성1
